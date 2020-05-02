@@ -3,6 +3,7 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import WelcomePage from './pages/WelcomePage'
 import QuizPage from './pages/QuizPage'
 import 'semantic-ui-css/semantic.min.css'
+import './App.css'
 
 const App = () => {
   return (

@@ -1,11 +1,23 @@
 import React from 'react'
+import { Header, Button } from 'semantic-ui-react'
 
-const Question = ({currentQuestion, checkAnswer}) => {
+const Question = ({ currentQuestion, checkAnswer }) => {
+  const { allAnswers } = currentQuestion
   return (
-    <div>
-      <div>{currentQuestion.question}</div>
-      <div>{currentQuestion.allAnswers.map((a, i) => <div onClick={checkAnswer} key={i}>{a}</div>)}</div>
-    </div>
+    <>
+      <Header size='medium'>{currentQuestion.question}</Header>
+      {allAnswers.map((question, index) => (
+        <div style={{ margin: '15px 0' }} key={index}>
+          <Button
+            onClick={checkAnswer}
+            content={question}
+            basic
+            fluid
+            size='large'
+          />
+        </div>
+      ))}
+    </>
   )
 }
 

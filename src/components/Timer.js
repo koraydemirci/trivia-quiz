@@ -16,11 +16,7 @@ const Timer = React.forwardRef((props, ref) => {
     return () => clearInterval(intervalId)
   }, [timeLeft, handleTimeIsUp])
 
-  return (
-    <div>
-      <h1 ref={ref}>{timeLeft}</h1>
-    </div>
-  )
+  return <strong ref={ref}>{timeLeft}</strong>
 })
 
 export default Timer
