@@ -1,58 +1,63 @@
-import React from 'react'
-import { Grid, Button, Header, Card } from 'semantic-ui-react'
-import Lottie from 'react-lottie'
+import React from "react";
+import { Grid, Button, Header, Card } from "semantic-ui-react";
+import Lottie from "react-lottie";
 import {
   CorrectAnimation,
   WrongAnimation,
   TimeIsUpAnimation,
-  CongratulationsAnimation
-} from '../lotties'
+  CongratulationsAnimation,
+} from "../lotties";
+import AppConfig from "../config";
+
+const { numberOfQuestions } = AppConfig;
 
 const messageLookup = {
   correctAnswer: {
-    text: 'Your answer is correct!',
-    handlerName: 'handleCorrectAnswer',
-    buttonText: 'Next Question',
-    animationData: CorrectAnimation
+    text: "Your answer is correct!",
+    handlerName: "handleCorrectAnswer",
+    buttonText: "Next Question",
+    animationData: CorrectAnimation,
   },
   wrongAnswer: {
-    text: 'Your answer is wrong!',
-    handlerName: 'handleWrongAnswer',
-    buttonText: 'Create A New Quiz',
-    animationData: WrongAnimation
+    text: "Your answer is wrong!",
+    handlerName: "handleWrongAnswer",
+    buttonText: "Create A New Quiz",
+    animationData: WrongAnimation,
   },
   timeIsUp: {
     text: "Your haven't answered the question in 15 seconds!",
-    handlerName: 'handleTimeIsUp',
-    buttonText: 'Create A New Quiz',
-    animationData: TimeIsUpAnimation
+    handlerName: "handleTimeIsUp",
+    buttonText: "Create A New Quiz",
+    animationData: TimeIsUpAnimation,
   },
   quizIsCompleted: {
-    text: 'Your have answered all questions correct. Congratulations!',
-    handlerName: 'handleCompleteQuiz',
-    buttonText: 'Create A New Quiz',
-    animationData: CongratulationsAnimation
-  }
-}
-
-const numberOfQuestions = 10
+    text: "Congratulations! Your have answered all questions correct.",
+    handlerName: "handleCompleteQuiz",
+    buttonText: "Create A New Quiz",
+    animationData: CongratulationsAnimation,
+  },
+};
 
 const Message = ({
   message,
   messageHandler,
   totalPoints,
   newPoints,
-  currentQuestionIndex
+  currentQuestionIndex,
 }) => {
   const { text, handlerName, buttonText, animationData } = messageLookup[
     message
-  ]
+  ];
 
   return (
-    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+    <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 500 }}>
         <Card fluid>
-          <Card.Content header={`Question: ${currentQuestionIndex + 1} / ${numberOfQuestions}`} />
+          <Card.Content
+            header={`Question: ${
+              currentQuestionIndex + 1
+            } / ${numberOfQuestions}`}
+          />
           <Card.Content>
             <Lottie
               options={{
@@ -60,19 +65,21 @@ const Message = ({
                 autoplay: true,
                 animationData: animationData,
                 rendererSettings: {
-                  preserveAspectRatio: 'xMidYMid slice'
-                }
+                  preserveAspectRatio: "xMidYMid slice",
+                },
               }}
               height={200}
               width={200}
             />
-            <Header size='medium'>{text}</Header>
-            <p>You have earned <strong>{newPoints}</strong> points.</p>
-            <p className='bold'>TOTAL POINTS: {totalPoints}</p>
+            <Header size="medium">{text}</Header>
+            <p>
+              You have earned <strong>{newPoints}</strong> points.
+            </p>
+            <p className="bold">TOTAL POINTS: {totalPoints}</p>
             <Button
-              color='green'
+              color="green"
               fluid
-              size='large'
+              size="large"
               onClick={() => messageHandler(handlerName)}
             >
               {buttonText}
@@ -81,7 +88,7 @@ const Message = ({
         </Card>
       </Grid.Column>
     </Grid>
-  )
-}
+  );
+};
 
-export default Message
+export default Message;

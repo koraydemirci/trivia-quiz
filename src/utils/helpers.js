@@ -1,8 +1,5 @@
-export const insertItemToArrayRandomly = (arr, index, newItem) => [
-  // part of the array before the specified index
+export const insertItemToArray = (arr, index, newItem) => [
   ...arr.slice(0, index),
-  // inserted item
   newItem,
-  // part of the array after the specified index
-  ...arr.slice(index)
-]
+  ...arr.slice(index),
+];

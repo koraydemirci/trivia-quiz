@@ -1,23 +1,23 @@
-import React from 'react'
-import { Route, Switch, BrowserRouter } from 'react-router-dom'
-import WelcomePage from './pages/WelcomePage'
-import QuizPage from './pages/QuizPage'
-import 'semantic-ui-css/semantic.min.css'
-import './App.css'
+import React from "react";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
+import WelcomePage from "./pages/WelcomePage";
+import QuizPage from "./pages/QuizPage";
+import "semantic-ui-css/semantic.min.css";
+import "./App.css";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/quiz'>
+        <Route path="/quiz">
           <QuizPage />
         </Route>
-        <Route path='/'>
+        <Route path="/">
           <WelcomePage />
         </Route>
       </Switch>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default App
+export default App;

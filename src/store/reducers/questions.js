@@ -1,12 +1,11 @@
-import { FETCH_QUESTIONS } from '../actions/actionTypes'
+import { FETCH_QUESTIONS } from "../actions/actionTypes";
 
-let initialState = []
-
+let initialState = [];
 export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_QUESTIONS:
-      return action.questions
+      return action.questions;
     default:
-      return state
+      return state;
   }
-}
+};

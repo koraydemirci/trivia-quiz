@@ -1,13 +1,12 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux'
-import ReduxThunk from 'redux-thunk'
-import questionsReducer from './reducers/questions'
+import { createStore, applyMiddleware, combineReducers } from "redux";
+import ReduxThunk from "redux-thunk";
+import questionsReducer from "./reducers/questions";
 
 export const configureStore = () => {
   const rootReducer = combineReducers({
-    questions: questionsReducer
-  })
+    questions: questionsReducer,
+  });
 
-  const store = createStore(rootReducer, applyMiddleware(ReduxThunk))
-
-  return store
-}
+  const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
+  return store;
+};
